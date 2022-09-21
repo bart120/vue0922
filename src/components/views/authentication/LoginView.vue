@@ -2,6 +2,7 @@
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import InputPink from '../../core/input/InputPink.vue'
+import InputMail from '../../core/input/InputMail.vue';
 
 //composition
 /*function submit() {
@@ -21,6 +22,9 @@ export default {
             //console.log("test");
             console.log("user:", this.user);
             //this.user.login = 'bob';
+        },
+        statusChangeFnt(event) {
+            console.log("event:", event);
         }
     }
 }
@@ -35,7 +39,8 @@ export default {
             <!--<label>Login</label>
             <InputText type="email" v-model="user.login" />-->
 
-            <InputPink label="Login" type="email" v-model="user.login" />
+            <!--<InputPink label="Login" type="email" v-model="user.login" />-->
+            <InputMail label="Login" v-model="user.login" @status-change="statusChangeFnt" />
         </div>
         <div>
             <!--<label>Mot de passe</label>

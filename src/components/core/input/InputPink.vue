@@ -15,7 +15,6 @@ export default {
     props: {
         label: String
     },
-
     mounted() {
         //console.log("props", this.$props);
         //console.log("attrs", this.$attrs);
@@ -29,7 +28,6 @@ export default {
             return this.$attrs.modelValue == '' ? 'background-color: pink' : '';
         }
     }
-
 }
 </script>
 
