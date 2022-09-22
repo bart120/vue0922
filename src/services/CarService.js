@@ -25,9 +25,9 @@ export default class {
         return Promise.resolve(response.data);
     }
 
-    methodeDeRetour(response) {
+    /*methodeDeRetour(response) { //NO
         return response.data;
-    }
+    }*/
 
     getCarById(id) {
         return axios.get(`${url}/${id}`).then(this.methodeDeChainage);
