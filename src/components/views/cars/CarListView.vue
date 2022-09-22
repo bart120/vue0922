@@ -42,7 +42,7 @@ export default {
             </tr>
         </thead>
         <tbody>
-            <tr v-for="car in cars">
+            <tr v-for="car in cars" :key="car.id">
                 <td>{{car.model}}</td>
                 <td>{{car.price}} €</td>
             </tr>
