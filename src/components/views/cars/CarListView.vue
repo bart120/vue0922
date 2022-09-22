@@ -15,8 +15,9 @@ export default {
 
         console.log("fin mounted")*/
 
-        carService.getCars().then(response => {
-            this.cars = response.data;
+        carService.getCars().then(data => {
+            //console.log(response);
+            this.cars = data;
         }).catch(err => {
             alert(`Erreur: ${err}`);
         });
@@ -31,6 +32,7 @@ export default {
 
 
 <template>
+
     <h1>Liste des voitures</h1>
     <table>
         <thead>

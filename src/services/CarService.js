@@ -10,13 +10,41 @@ export default class {
 
         console.log('fin getcars')
         return p;*/
-        return axios.get(url);
+        //return axios.get(url);
+
+        /*const p1 = axios.get(url);
+        const p2 = p1.then(this.methodeDeChainage);
+        return p2;*/
+        return axios.get(url).then(this.methodeDeChainage);
+    }
+
+    methodeDeChainage(response) {
+        if (response.status == 201) {
+            return Promise.reject("C'est pas bon!");
+        }
+        return Promise.resolve(response.data);
+    }
+
+    methodeDeRetour(response) {
+        return response.data;
+    }
+
+    getCarById(id) {
+        return axios.get(`${url}/${id}`).then(this.methodeDeChainage);
+    }
+
+    addCar(car) {
+        return axios.post(url, car);
+    }
+
+    updateCar(car) {
+        return axios.put(`${url}/${car.id}`, car);
+    }
+
+    deleteCar(id) {
+        return axios.delete(`${url}/${id}`);
     }
 
 
-    /*methodeDeRetour(response) { //NO
-        console.log("resultat", response);
-        console.log("fin methodeRetour");
-        return response.data;
-    }*/
+
 }
