@@ -15,11 +15,11 @@ export default {
         value(newVal, oldVal) {
             if (regMail.test(newVal)) {
                 this.valid = true;
-                this.$emit('statusChange', this.valid);
+                this.$emit('statusChange', { state: this.valid, msg: '' });
                 return;
             }
             this.valid = false;
-            this.$emit('statusChange', this.valid);
+            this.$emit('statusChange', { state: this.valid, msg: 'Mail invalide' });
         }
     },
     updated() {

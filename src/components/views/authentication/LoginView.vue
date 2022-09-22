@@ -14,7 +14,7 @@ import InputMail from '../../core/input/InputMail.vue';
 
 export default {
     data() {
-        return { user: { login: '', password: '' } }
+        return { user: { login: '', password: '' }, validView: false }
     },
     methods: {
         submit(/*event*/) {
@@ -23,8 +23,9 @@ export default {
             console.log("user:", this.user);
             //this.user.login = 'bob';
         },
-        statusChangeFnt(event) {
-            console.log("event:", event);
+        statusChangeFnt(obj) {
+            //console.log("state:", obj.state);
+            this.validView = obj.state;
         }
     }
 }
@@ -48,7 +49,7 @@ export default {
             <InputPink label="Mot de passe" type="password" v-model="user.password" />
         </div>
         <div>
-            <Button type="submit">Connexion</Button>
+            <Button type="submit" :disabled="!this.validView">Connexion</Button>
         </div>
     </form>
 </template>
