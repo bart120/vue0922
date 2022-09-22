@@ -19,7 +19,7 @@ export default class {
     }
 
     methodeDeChainage(response) {
-        if (response.status == 201) {
+        if (response.status == 404) {
             return Promise.reject("C'est pas bon!");
         }
         return Promise.resolve(response.data);
@@ -34,7 +34,8 @@ export default class {
     }
 
     addCar(car) {
-        return axios.post(url, car);
+        car.price = +car.price;
+        return axios.post(url, car).then(this.methodeDeChainage);
     }
 
     updateCar(car) {
